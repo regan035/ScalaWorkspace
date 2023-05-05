@@ -1,13 +1,11 @@
 
 
- //trait class
- trait People{
+ //super class
+ class People{
     private var name:String=" ";
     private var gender:String = " ";
     private var age:Int = 0;
-    def greeting():Unit = {
-      println("Hello ...")
-    }
+    
     //setter
    def set_name(Name:String){
      name = Name
@@ -28,10 +26,26 @@
    def get_age():Int = {
      return age
    }
+   def greeting():Unit={
+     println("Hello ...")
+   }
 
   }
+ // traits
+ trait Greeting{
+   def greeting():Unit={
+     println("Hello ...")
+   }
+ }
+ trait Enrollment{
+   def enrollment():Unit ={
+     println("No class enrolled")
+   }
+ }
+
  
- class Student extends People{
+ // sub class
+ class Student extends People with Greeting with Enrollment{
    private var studentId:Int = 0;
    private var gpa:Double = 0.0;
    //setter
@@ -48,12 +62,19 @@
    def get_gpa():Double ={
      return gpa
    }
-    //overrride
+    //overrride with mulitple traits
    override def greeting():Unit={
      println("Hello "+get_name())
    }
-
+   override def enrollment():Unit={
+     println("Class enrolled: "+"Math");
+     println("Class enrolled: "+"History");
+     println("Class enrolled: "+"English");
+   }
  }
+
+ 
+
 
 object Assignment {
   
@@ -80,6 +101,7 @@ object Assignment {
     
     //calling the override function 
     student1.greeting();
+    student1.enrollment()
     println("Student GPA: "+student1.get_gpa())
     
     
