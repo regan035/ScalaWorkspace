@@ -1,7 +1,7 @@
 
 
- //class
- class People{
+ //trait class
+ trait People{
     private var name:String=" ";
     private var gender:String = " ";
     private var age:Int = 0;
@@ -77,6 +77,8 @@ object Assignment {
     student1.set_gender("M");
     student1.set_age(21);
     student1.set_gpa(3.88);
+    
+    //calling the override function 
     student1.greeting();
     println("Student GPA: "+student1.get_gpa())
     
