@@ -62,7 +62,7 @@
    def get_gpa():Double ={
      return gpa
    }
-    //overrride with mulitple traits
+    //override with mulitple traits
    override def greeting():Unit={
      println("Hello "+get_name())
    }
@@ -74,7 +74,37 @@
  }
 
  
+// 2nd level sub class
+ class Alumni extends Student{
+   private var graduated:String= " "; 
+   private var degree:String = " ";
+   
+   //setter
+      def set_graduated(Date: String){
+     graduated = Date
+   }
+   def set_degree(Degree: String){
+     degree = Degree
+   }
+   //getter
+   def get_graduated():String ={
+     return graduated
+   }
+   def get_degree():String = {
+     return degree
+   }
+//   override def greeting():Unit={
+//     println("Congratulations ")
+//   }
+   
+   def alumni_details(){
+     println("Alumni Name: "+get_name())
+     //greeting()
+     println("Alumni graduated on: "+get_graduated())
+     println("Alumni was granted: "+get_degree())
+   }
 
+ }
 
 object Assignment {
   
@@ -91,7 +121,9 @@ object Assignment {
     //currying
     testingCurry("Hello")("World")
     
-    //create new object
+    println(" ")
+    println(".....First level subclass ")
+        //create new object
     var student1 = new Student()
     student1.set_studentId(101);
     student1.set_name("Gen Li");
@@ -104,7 +136,14 @@ object Assignment {
     student1.enrollment()
     println("Student GPA: "+student1.get_gpa())
     
-    
+    //2nd level new object
+    println(" ")
+    println(".....Second level subclass ")
+    var student2 = new Alumni();
+    student2.set_name("Lesley")
+    student2.set_graduated("May 2023")
+    student2.set_degree("Master Of Science in Information Technology")
+    student2.alumni_details()
     
   }
 }
